@@ -9,6 +9,7 @@ body {
   background-color: white;
   margin: 200px auto;
   height: 150px;
+  width: 50%;
   border-radius: 15px;
   box-shadow: 5px 10px #6c757d;
 }
