@@ -40,13 +40,13 @@ function getArticles(){
 
   function displaySearchResults(data){
     data["response"]["docs"].forEach(article => {
-      chewJSON(article)
+      chewJSON(article).forEach(articleChunk => {
 
-      // find container-fluid, add id
+      // find div, add id
       let searchCard = document.getElementById('styled-search-div')
 
       //find article results div
-      let searchResults = document.getElementById('search-div')
+      let searchResults = document.getElementById('search-results')
 
       // create card divs <div class="card w-75"> and <div class="card-body">
       let cardDivParent = document.createElement('div')
@@ -61,17 +61,17 @@ function getArticles(){
       let headline = document.createElement('h5')
         headline.className = 'card-title'
         headline.setAttribute('id', 'card-title-id')
-        headline = article.headLine
+        headline = articleChunk.headLine
 
       let author = document.createElement('p')
         author.className = 'card-text'
         author.setAttribute('id', 'card-text-id')
-        author = article.author
+        author = articleChunk.author
 
       let snippet = document.createElement('p')
         snippet.className = 'card-text'
         snippet.setAttribute('id', 'card-text-id-2')
-        snippet = article.snippet
+        snippet = articleChunk.snippet
 
       //append article content tags to card div
       cardDivChild.append(headline, author, snippet)
@@ -91,6 +91,8 @@ function getArticles(){
       // return cardDivParent
       return searchCard
 
+      debugger
+      })
     })
   }
 

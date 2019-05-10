@@ -18,6 +18,10 @@ body {
   text-align: center;
 }
 
+.width-75 {
+  width: 100%;
+}
+
 #form-group {
   display: inline-block;
 }
